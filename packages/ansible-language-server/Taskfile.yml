@@ -13,7 +13,7 @@ vars:
 includes:
   base:
     taskfile: ../../Taskfile.base.yml
-    internal: true
+    # internal: true
     flatten: true
 tasks:
   default:
@@ -37,7 +37,7 @@ tasks:
     generates:
       - dist/**/*.*
     sources:
-      - ../../package-lock.json
+      - ../../yarn.lock
       - package.json
       - src/**/*.*
       - test/**/*.*
@@ -93,6 +93,8 @@ tasks:
       - README.md
       - package.json
       - dist/
+      - tsconfig.json
+      - tsup.config.ts
     generates:
       - '{{ .GIT_ROOT }}/out/@ansible-{{ .PROJECT }}-*.tgz'
     cmds:

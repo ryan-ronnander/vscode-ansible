@@ -58,6 +58,7 @@ tasks:
     cmds:
       # - for: sources
       #   cmd: echo {{ .ITEM }}
+      - task: yarn
       - yarn workspaces foreach --all -tv run clean
       - yarn run build
       - yarn run vite-build
@@ -119,7 +120,7 @@ tasks:
     interactive: true # needed for ncu prompts
     cmds:
       - yarn ncu -u --workspaces -i
-      - yarn knip
+      - task: knip
   "deps:python":
     desc: Update python dependencies
     cmds:
@@ -139,7 +140,6 @@ tasks:
       - docs/**/*
       - media/**/*
       - mkdocs.yml
-      - packages/ansible-language-server/tools/settings-doc-generator.ts
       - pyproject.toml
     generates:
       - out/html/**/*
@@ -147,7 +147,7 @@ tasks:
       # Retrieve possibly missing commits:
       - $(git rev-parse --is-shallow-repository) && git fetch --unshallow > /dev/null || true
       - git fetch --tags --force
-      - npx tsx packages/ansible-language-server/tools/settings-doc-generator.ts
+      - npx ansible-language-server --generate-docs docs/als/settings.md
       - bash -c '. "${VIRTUAL_ENV}/bin/activate" && mkdocs build --strict --site-dir=${READTHEDOCS_OUTPUT:-out}/html/'
       - defer: { task: finish }
   lint:
@@ -290,6 +290,7 @@ tasks:
       - task: mcp:package # to produce the tgz file that can-release is using (implies install)
       - ./tools/helper --package
       - packages/ansible-language-server/tools/can-release.sh
+      - task: knip
       - defer: { task: finish }
     silent: true
   pr:

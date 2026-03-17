@@ -1,4 +1,4 @@
-import type { Options } from 'tsup';
+import type { Options } from "tsup";
 
 const env = process.env.NODE_ENV;
 
@@ -15,7 +15,7 @@ export const tsup: Options = {
     minify: env === 'production',
     bundle: env === 'production',
     entry: ['src/**/*.ts'],
-    format: ['esm'],
+    format: ['esm', 'cjs'],
     outDir: env === 'production' ? 'dist' : 'lib',
     splitting: false,
     watch: env === 'development',

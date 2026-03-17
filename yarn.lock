@@ -13,7 +13,6 @@ __metadata:
     "@types/ini": "npm:^4.1.1"
     "@types/lodash": "npm:^4.17.24"
     "@types/node": "npm:^24.10.2"
-    "@types/shell-quote": "npm:^1"
     "@types/vscode": "npm:^1.85.0"
     ajv: "npm:^8.18.0"
     ajv-formats: "npm:^3.0.1"

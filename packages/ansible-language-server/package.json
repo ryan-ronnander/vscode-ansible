@@ -41,7 +41,6 @@
     "@types/ini": "^4.1.1",
     "@types/lodash": "^4.17.24",
     "@types/node": "^24.10.2",
-    "@types/shell-quote": "^1",
     "@types/vscode": "^1.85.0",
     "fuse.js": "^7.1.0",
     "handlebars": "^4.7.8",
@@ -68,6 +67,18 @@
     "./services/settingsManager": {
       "types": "./dist/services/settingsManager.d.ts",
       "default": "./dist/services/settingsManager.js"
+    },
+    "./providers/completionProvider": {
+      "types": "./dist/providers/completionProvider.d.ts",
+      "default": "./dist/providers/completionProvider.js"
+    },
+    "./providers/validationProvider": {
+      "types": "./dist/providers/validationProvider.d.ts",
+      "default": "./dist/providers/validationProvider.js"
+    },
+    "./utils/getAnsibleMetaData": {
+      "types": "./dist/utils/getAnsibleMetaData.d.ts",
+      "default": "./dist/utils/getAnsibleMetaData.js"
     }
   },
   "files": [
@@ -91,7 +102,7 @@
     "//prepare": "Prepare is needed for installation from source",
     "clean": "rimraf dist lib out/server",
     "compile": "tsup --silent",
-    "prepare": "npm run compile",
+    "prepare": "npm run compile && env NODE_ENV=production tsup --silent",
     "test": "vitest run --project=als",
     "test-with-ee": "vitest run --project=als -t @ee",
     "test-without-ee": "SKIP_PODMAN=1 SKIP_DOCKER=1 vitest run --project=als",
