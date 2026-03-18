@@ -28,6 +28,7 @@
   "git.enabled": false,
   "git.path": null,
   "python.autoUpdateLanguageServer": false,
+  "python.terminal.useEnvFile": true,
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
