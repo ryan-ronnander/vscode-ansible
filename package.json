@@ -679,7 +679,17 @@
           "**/*playbook*.yml",
           "**/*playbook*.yaml",
           "**/roles/**/main.yml",
-          "**/roles/**/main.yaml"
+          "**/roles/**/main.yaml",
+          "**/roles/*/tasks/*.yml",
+          "**/roles/*/tasks/*.yaml",
+          "**/roles/*/handlers/*.yml",
+          "**/roles/*/handlers/*.yaml",
+          "**/roles/*/defaults/*.yml",
+          "**/roles/*/defaults/*.yaml",
+          "**/roles/*/vars/*.yml",
+          "**/roles/*/vars/*.yaml",
+          "**/roles/*/meta/*.yml",
+          "**/roles/*/meta/*.yaml"
         ],
         "filenames": [
           "site.yml",
